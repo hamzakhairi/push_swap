@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 10:23:29 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/01/07 14:37:57 by hkhairi          ###   ########.fr       */
+/*   Created: 2025/01/07 11:31:09 by hkhairi           #+#    #+#             */
+/*   Updated: 2025/01/07 14:17:37 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "../include/push_swap.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_push
+void print_error()
 {
-    int number;
-    struct s_push *next;
-} t_push;
+    write(1, "Error\n", 6);
+}
 
-// init stack
-int init_stack(int argc, char *argv[], t_push **stack);
+void free_node(t_push *list)
+{
+    t_push *free_node;
 
-// handle error and free node 
-void print_error();
-void free_node(t_push *list);
-
-// validation 
-int validate_input(char *argv[], int argc);
-
-
-#endif
+    while (list)
+    {
+        free_node = list;
+        list = list->next;
+        free(free_node);
+    }
+}

@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 09:50:25 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/01/07 10:44:08 by hkhairi          ###   ########.fr       */
+/*   Created: 2025/01/07 10:23:10 by hkhairi           #+#    #+#             */
+/*   Updated: 2025/01/07 12:00:19 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "../include/push_swap.h"
 
-
-typedef struct s_push
+int	ft_atoi(const char *str)
 {
-    int number;
-    struct s_push *next;
-} t_push;
+	int	result;
+	int					sign;
+
+	result = 0;
+	sign = 1;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + (*str - '0');
+		str++;
+	}
+	return (result * sign);
+}
 
 void	ft_lstadd_back(t_push **lst, t_push *new)
 {
@@ -44,6 +59,10 @@ void	ft_lstadd_back(t_push **lst, t_push *new)
 t_push* create_node(int value)
 {
     t_push* new_node = (t_push*)malloc(sizeof(t_push));
+    if (!new_node)
+    {
+        exit(0);
+    }
     if (new_node)
     {
         new_node->number = value;
@@ -52,32 +71,27 @@ t_push* create_node(int value)
     return new_node;
 }
 
-
-int main(int argc, char *argv[]) 
+int init_stack(int argc, char *argv[], t_push **a)
 {
-    t_push  *head;
-    int i = 0;
-    while (i < 3)
+    int i = 1;
+    t_push *new_node;
+
+    if (argc <= 1)
     {
-        ft_lstadd_back(&head, create_node(i));
+        print_error();
+        return (0);
+    }
+    while (i < argc)
+    {
+        new_node = create_node(ft_atoi(argv[i]));
+        if (!new_node)
+        {
+            free_node(*a);
+            print_error();
+            return (0);
+        }
+        ft_lstadd_back(a, new_node);
         i++;
     }
-
-    t_push* current = head;
-    while (current)
-    {
-        printf("%d -> ", current->number);
-        current = current->next;
-    }
-    printf("NULL\n");
-
-    current = head;
-    while (current)
-    {
-        t_push* temp = current;
-        current = current->next;
-        free(temp);
-    }
-
-    return 0;
+    return (1);
 }
