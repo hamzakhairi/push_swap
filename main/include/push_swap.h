@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 10:23:29 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/01/07 14:37:57 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/01/09 13:25:36 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,8 @@ void free_node(t_push *list);
 // validation 
 int validate_input(char *argv[], int argc);
 
+// mian funciton 
+void ra(t_push **a);
+void sa(t_push **a);
 
 #endif

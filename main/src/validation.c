@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:17:40 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/01/08 18:44:41 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/01/09 12:57:16 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,32 +32,32 @@ int is_valid_integer(const char *str)
     return (1);
 }
 
-int duplicate_detected(int position, char *argv[])
-{
-    int i = 1;
+// int duplicate_detected(int position, char *argv[])
+// {
+//     int i = 1;
 
-    while (argv[i])
-    {
-        if (i == position)
-            i++;
-        if (argv[position] == argv[i])
-            return (0);
-        i++;
-    }
-    return (1);
-}
+//     while (argv[i])
+//     {
+//         if (i == position)
+//             i++;
+//         if (argv[position] == argv[i])
+//             return (0);
+//         i++;
+//     }
+//     return (1);
+// }
 
-int has_duplicates(char *argv[], int argc)
-{
-    int i = 1;
-    while (argv[i])
-    {
-        if (!duplicate_detected(i, argv));
-            return (0);
-        i++;
-    }
-    return (0);
-}
+// int has_duplicates(char *argv[], int argc)
+// {
+//     int i = 1;
+//     while (argv[i])
+//     {
+//         if (!duplicate_detected(i, argv));
+//             return (0);
+//         i++;
+//     }
+//     return (0);
+// }
 
 int validate_input(char *argv[], int argc)
 {

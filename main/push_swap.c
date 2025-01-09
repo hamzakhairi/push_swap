@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:32:16 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/01/08 18:37:00 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/01/09 13:25:03 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int main(int argc, char *argv[])
         return (0);
     if (!init_stack(argc, argv, &a))
         return (0);
-
+    
+    sa(&a);
     t_push *curnt = a;
     while (curnt)
     {
