@@ -1,40 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 13:05:24 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/01/09 13:27:37 by hkhairi          ###   ########.fr       */
+/*   Created: 2025/01/13 12:32:12 by hkhairi           #+#    #+#             */
+/*   Updated: 2025/01/16 14:05:01 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void sa(t_push **a)
-{
-    if (!a || !(*a) || !(*a)->next)
-        return;
-    
-    t_push *first = *a;
-    t_push *second = (*a)->next;
-    
-    first->next = second->next;
-    second->next = first;
 
-    *a = second;
-}
+
+int is_in_chunk(int value, int start, int end);
+int get_index(t_push *stack, int value); 
+void move_to_top(t_push *stack, int index); 
 
 
 
 
-// void sb()
-// {
-
-// }
-
-// void ss()
-// {
-    
-// }

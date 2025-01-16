@@ -10,10 +10,8 @@ OBJDIR = obj
 SRC = $(SRCDIR)/handle_error.c \
       $(SRCDIR)/init_stack.c \
       $(SRCDIR)/validation.c \
-      $(FUNCDIR)/reversw_rotate.c \
-      $(FUNCDIR)/rotat.c \
-      $(FUNCDIR)/swap.c \
-      push_swap.c
+	  $(SRCDIR)/swap.c \
+      main.c
 
 OBJ = $(SRC:%.c=$(OBJDIR)/%.o)
 NAME = push_swap
