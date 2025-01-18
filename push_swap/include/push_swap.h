@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 15:51:08 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/01/15 12:32:43 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/01/17 18:03:28 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ typedef struct s_push
     int index;
     struct s_push *next;
 } t_push;
+
+typedef struct s_get
+{
+    int value;
+    int index;
+} t_get;
 
 // init stack 
 void init_stack(t_push **list, char *argv[]);
